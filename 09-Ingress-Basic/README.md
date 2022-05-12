@@ -24,7 +24,7 @@ az aks show --resource-group aks-rg1 --name aksdemo1 --query nodeResourceGroup -
 # TEMPLATE - Create a public IP address with the static allocation
 az network public-ip create --resource-group <REPLACE-OUTPUT-RG-FROM-PREVIOUS-COMMAND> --name myAKSPublicIPForIngress --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 
-# REPLACE - Create Public IP: Replace Resource Group value
+#  USe this command not template above. REPLACE - Create Public IP: Replace Resource Group value
 az network public-ip create --resource-group MC_aks-rg1_aksdemo1_centralus --name myAKSPublicIPForIngress --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 - Make a note of Static IP which we will use in next step when installing Ingress Controller
@@ -37,6 +37,8 @@ az network public-ip create --resource-group MC_aks-rg1_aksdemo1_centralus --nam
 ```
 # Install Helm3 (if not installed)
 brew install helm
+
+see this [link](https://helm.sh/docs/intro/install/)
 
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
